@@ -1,5 +1,6 @@
-import { saveState, getState, setFailed, info, setOutput, warning } from "@actions/core";
+import { addPath, saveState, getState, setFailed, info, setOutput, warning } from "@actions/core";
 import { getExecOutput } from "@actions/exec";
+import { join } from "node:path";
 import { getInputs } from "./inputs.js";
 import { installVitePlus } from "./install-viteplus.js";
 import { setupSfw } from "./install-sfw.js";
@@ -28,6 +29,7 @@ async function runMain(inputs: Inputs): Promise<void> {
   // lockfile > latest; see resolveVitePlusVersion) and install it.
   const version = resolveVitePlusVersion(inputs, projectDir);
   await installVitePlus({ ...inputs, version });
+  addProjectNodeModulesBinToPath(projectDir);
 
   // Step 3: Validate requested Node.js version if specified. Tiara Vite+ does
   // not provide `vp env`, so callers that require an exact runtime should use
@@ -71,6 +73,12 @@ async function runMain(inputs: Inputs): Promise<void> {
 
   // Print version info at the end
   await printViteVersion(projectDir);
+}
+
+function addProjectNodeModulesBinToPath(projectDir: string): void {
+  const binDir = join(projectDir, "node_modules", ".bin");
+  addPath(binDir);
+  info(`Added project binaries to PATH: ${binDir}`);
 }
 
 async function printViteVersion(cwd: string): Promise<void> {
