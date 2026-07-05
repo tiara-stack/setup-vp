@@ -6,7 +6,7 @@ import { DISPLAY_NAME, PACKAGE_NAME } from "./types.js";
 
 export async function installVitePlus(inputs: Inputs): Promise<void> {
   const { version } = inputs;
-  const packageSpec = `${PACKAGE_NAME}@${version}`;
+  const packageSpec = `vite-plus@npm:${PACKAGE_NAME}@${version}`;
 
   info(`Installing ${packageSpec}...`);
   await exec("npm", ["install", "--global", packageSpec]);
