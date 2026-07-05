@@ -9,7 +9,7 @@ export async function installVitePlus(inputs: Inputs): Promise<void> {
   const packageSpec = `vite-plus@npm:${PACKAGE_NAME}@${version}`;
 
   info(`Installing ${packageSpec}...`);
-  await exec("npm", ["install", "--global", packageSpec]);
+  await exec("npm", ["install", "--global", packageSpec, "typescript"]);
 
   await ensureGlobalNpmBinInPath();
   info(`Installed ${DISPLAY_NAME} from ${packageSpec}`);
