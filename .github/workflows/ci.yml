@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  ci:
+    name: ci
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Tiara Vite+
+        uses: ./
+        with:
+          version: "0.2.2"
+          node-version: "22"
+          cache: true
+          run-install: false
+
+      - name: Install dependencies
+        run: vp install
+
+      - name: Check formatting
+        run: vp run -w format
+
+      - name: Lint
+        run: vp run -w lint
+
+      - name: Typecheck
+        run: vp run -w typecheck
+
+      - name: Build action bundle
+        run: vp run -w build
+
+      - name: Test action bundle
+        run: vp run -w test
