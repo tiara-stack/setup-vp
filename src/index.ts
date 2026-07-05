@@ -1,5 +1,5 @@
 import { saveState, getState, setFailed, info, setOutput, warning } from "@actions/core";
-import { exec, getExecOutput } from "@actions/exec";
+import { getExecOutput } from "@actions/exec";
 import { getInputs } from "./inputs.js";
 import { installVitePlus } from "./install-viteplus.js";
 import { setupSfw } from "./install-sfw.js";
@@ -29,10 +29,21 @@ async function runMain(inputs: Inputs): Promise<void> {
   const version = resolveVitePlusVersion(inputs, projectDir);
   await installVitePlus({ ...inputs, version });
 
-  // Step 3: Set up Node.js version if specified
+  // Step 3: Validate requested Node.js version if specified. Tiara Vite+ does
+  // not provide `vp env`, so callers that require an exact runtime should use
+  // actions/setup-node before this action.
   if (nodeVersion) {
-    info(`Setting up Node.js ${nodeVersion} via vp env use...`);
-    await exec("vp", ["env", "use", nodeVersion]);
+    const current = process.versions.node;
+    const requestedMajor = nodeVersion.match(/\d+/)?.[0];
+    const currentMajor = current.split(".")[0];
+    if (requestedMajor && requestedMajor !== currentMajor) {
+      warning(
+        `Requested Node.js ${nodeVersion}, but the current runtime is ${current}. ` +
+          "Tiara setup-vp does not install Node.js; run actions/setup-node first if an exact Node version is required.",
+      );
+    } else {
+      info(`Using Node.js ${current}`);
+    }
   }
 
   // Step 4: Configure registry authentication

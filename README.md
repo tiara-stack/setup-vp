@@ -3,9 +3,10 @@
 GitHub Action fork of `voidzero-dev/setup-vp` for Tiara Stack tooling.
 
 This action preserves the upstream setup-vp inputs, caching behavior, optional
-`vp install`, Node setup via `vp env use`, and registry auth handling. The
-installer is intentionally changed to install `@tiara-stack/vite-plus` from npm
-instead of upstream `vite-plus`.
+`vp install`, and registry auth handling. The installer is intentionally changed
+to install `@tiara-stack/vite-plus` from npm instead of upstream `vite-plus`.
+Use `actions/setup-node` before this action when CI needs an exact Node.js
+runtime.
 
 ```yaml
 - uses: tiara-stack/setup-vp@v1
