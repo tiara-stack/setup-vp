@@ -4,15 +4,12 @@ import { join } from "node:path";
 import type { Inputs } from "./types.js";
 import { DISPLAY_NAME, PACKAGE_NAME } from "./types.js";
 
-const TYPESCRIPT_NATIVE_PREVIEW_VERSION = "7.0.0-dev.20260605.1";
-
 export async function installVitePlus(inputs: Inputs): Promise<void> {
   const { version } = inputs;
   const packageSpec = `vite-plus@npm:${PACKAGE_NAME}@${version}`;
-  const nativePreviewSpec = `@typescript/native-preview@${TYPESCRIPT_NATIVE_PREVIEW_VERSION}`;
 
   info(`Installing ${packageSpec}...`);
-  await exec("npm", ["install", "--global", packageSpec, "typescript", nativePreviewSpec]);
+  await exec("npm", ["install", "--global", packageSpec, "typescript"]);
 
   await ensureGlobalNpmBinInPath();
   info(`Installed ${DISPLAY_NAME} from ${packageSpec}`);
