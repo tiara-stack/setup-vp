@@ -1,0 +1,6 @@
+minimumReleaseAgeExclude:
+  - "@tiara-stack/tsgo-effect@0.1.2"
+  - "@tiara-stack/tsgo-effect-linux-x64@0.1.0"
+  - "@tiara-stack/tsgolint-effect@0.1.2"
+  - "@tiara-stack/tsgolint-effect-linux-x64@0.1.0"
+  - "@tiara-stack/vite-plus@0.2.4"
