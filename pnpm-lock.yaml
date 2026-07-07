@@ -37,8 +37,8 @@ importers:
         specifier: npm:@voidzero-dev/vite-plus-core@0.2.2
         version: '@voidzero-dev/vite-plus-core@0.2.2(@types/node@24.13.2)(typescript@6.0.3)(yaml@2.9.0)'
       vite-plus:
-        specifier: npm:@tiara-stack/vite-plus@0.2.3
-        version: '@tiara-stack/vite-plus@0.2.3(@tiara-stack/vite-plus@0.2.3)(@types/node@24.13.2)(@voidzero-dev/vite-plus-core@0.2.2(@types/node@24.13.2)(typescript@6.0.3)(yaml@2.9.0))(typescript@6.0.3)(yaml@2.9.0)'
+        specifier: npm:@tiara-stack/vite-plus@0.2.4
+        version: '@tiara-stack/vite-plus@0.2.4(@tiara-stack/vite-plus@0.2.4)(@types/node@24.13.2)(@voidzero-dev/vite-plus-core@0.2.2(@types/node@24.13.2)(typescript@6.0.3)(yaml@2.9.0))(typescript@6.0.3)(yaml@2.9.0)'
 
 packages:
 
@@ -446,16 +446,26 @@ packages:
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
 
-  '@tiara-stack/tsgo-effect@0.1.0':
-    resolution: {integrity: sha512-sNGmVwiLxECJ/LW3LRJettUSa/BaF6e3EJ8MiYqOmV6VRDnh3R6RuVOoL/xMkXsh1sMJQDX5wz3MxQ7hVY1FNg==}
+  '@tiara-stack/tsgo-effect-linux-x64@0.1.0':
+    resolution: {integrity: sha512-Y0+mPwEqNn68fvmhXhd5q9Pdg1gzgGURKDyGIOXasJJgSa8XX75BrSdeM7yHpBAmRaTys79wvoKtc8VZZVB8PQ==}
+    cpu: [x64]
+    os: [linux]
+
+  '@tiara-stack/tsgo-effect@0.1.2':
+    resolution: {integrity: sha512-YSUrZMBZcNtcUE0j+qJERXeJ2ydwQQtCP3ihiCQ6C8VJdld9vGqaY8G7Ac1JrIU1rhodb2y+2PCd5ZVeyxqpeQ==}
     hasBin: true
 
-  '@tiara-stack/tsgolint-effect@0.1.0':
-    resolution: {integrity: sha512-foC4I3QP4QL4z/zX3KtBhKLTIreBk6s5yyD4B0VuFDwilIHWlRVHbuZB39lMlVX71U6gkeSj7uRn9svqrlVoeg==}
+  '@tiara-stack/tsgolint-effect-linux-x64@0.1.0':
+    resolution: {integrity: sha512-RWizZWtlENPIjzWj2pHamX7JeSzHYCnevwE6N0s22f0gpRRfbbaFwgFY6q+XV/984jqLG73dF06+wSJqO3sXlw==}
+    cpu: [x64]
+    os: [linux]
+
+  '@tiara-stack/tsgolint-effect@0.1.2':
+    resolution: {integrity: sha512-vYrYQuDDUqBpVlXvCgK5cpkTOFjnQZKgxLH9UaoIGf8azhA0IgRVHxQOTJq5IkaR9wVKocMJk3gZ/yra8n7ryA==}
     hasBin: true
 
-  '@tiara-stack/vite-plus@0.2.3':
-    resolution: {integrity: sha512-BVyHihGQgOTZWiNMxhtd2T57zL4R1bf3YLNvyzM3Owp7d51Wn/26OYCg687Sug4UjDDsRhDTuAm0ciTrYM2uWQ==}
+  '@tiara-stack/vite-plus@0.2.4':
+    resolution: {integrity: sha512-XFIvuRJ5wNLLQGw9k4jBzS6qNJZPH2igNnHdIYWkhIjSyLkOejpq0rbMlXagKRywesvsyM0LcJ9gdEgVu/jcig==}
     engines: {node: ^20.19.0 || ^22.18.0 || >=24.11.0}
     hasBin: true
     peerDependencies:
@@ -1383,16 +1393,26 @@ snapshots:
     dependencies:
       '@testing-library/dom': 10.4.1
 
-  '@tiara-stack/tsgo-effect@0.1.0': {}
+  '@tiara-stack/tsgo-effect-linux-x64@0.1.0':
+    optional: true
 
-  '@tiara-stack/tsgolint-effect@0.1.0': {}
+  '@tiara-stack/tsgo-effect@0.1.2':
+    optionalDependencies:
+      '@tiara-stack/tsgo-effect-linux-x64': 0.1.0
 
-  '@tiara-stack/vite-plus@0.2.3(@tiara-stack/vite-plus@0.2.3)(@types/node@24.13.2)(@voidzero-dev/vite-plus-core@0.2.2(@types/node@24.13.2)(typescript@6.0.3)(yaml@2.9.0))(typescript@6.0.3)(yaml@2.9.0)':
+  '@tiara-stack/tsgolint-effect-linux-x64@0.1.0':
+    optional: true
+
+  '@tiara-stack/tsgolint-effect@0.1.2':
+    optionalDependencies:
+      '@tiara-stack/tsgolint-effect-linux-x64': 0.1.0
+
+  '@tiara-stack/vite-plus@0.2.4(@tiara-stack/vite-plus@0.2.4)(@types/node@24.13.2)(@voidzero-dev/vite-plus-core@0.2.2(@types/node@24.13.2)(typescript@6.0.3)(yaml@2.9.0))(typescript@6.0.3)(yaml@2.9.0)':
     dependencies:
       '@oxc-project/types': 0.138.0
       '@oxlint/plugins': 1.68.0
-      '@tiara-stack/tsgo-effect': 0.1.0
-      '@tiara-stack/tsgolint-effect': 0.1.0
+      '@tiara-stack/tsgo-effect': 0.1.2
+      '@tiara-stack/tsgolint-effect': 0.1.2
       '@vitest/browser': 4.1.9(@voidzero-dev/vite-plus-core@0.2.2(@types/node@24.13.2)(typescript@6.0.3)(yaml@2.9.0))(vitest@4.1.9)
       '@vitest/browser-preview': 4.1.9(@voidzero-dev/vite-plus-core@0.2.2(@types/node@24.13.2)(typescript@6.0.3)(yaml@2.9.0))(vitest@4.1.9)
       '@vitest/expect': 4.1.9
@@ -1403,8 +1423,8 @@ snapshots:
       '@vitest/spy': 4.1.9
       '@vitest/utils': 4.1.9
       '@voidzero-dev/vite-plus-core': 0.2.2(@types/node@24.13.2)(typescript@6.0.3)(yaml@2.9.0)
-      oxfmt: 0.57.0(@tiara-stack/vite-plus@0.2.3)
-      oxlint: 1.72.0(@tiara-stack/vite-plus@0.2.3)(oxlint-tsgolint@0.24.0)
+      oxfmt: 0.57.0(@tiara-stack/vite-plus@0.2.4)
+      oxlint: 1.72.0(@tiara-stack/vite-plus@0.2.4)(oxlint-tsgolint@0.24.0)
       oxlint-tsgolint: 0.24.0
       vitest: 4.1.9(@types/node@24.13.2)(@vitest/browser-preview@4.1.9)(@voidzero-dev/vite-plus-core@0.2.2(@types/node@24.13.2)(typescript@6.0.3)(yaml@2.9.0))
     optionalDependencies:
@@ -1740,7 +1760,7 @@ snapshots:
 
   obug@2.1.3: {}
 
-  oxfmt@0.57.0(@tiara-stack/vite-plus@0.2.3):
+  oxfmt@0.57.0(@tiara-stack/vite-plus@0.2.4):
     dependencies:
       tinypool: 2.1.0
     optionalDependencies:
@@ -1763,7 +1783,7 @@ snapshots:
       '@oxfmt/binding-win32-arm64-msvc': 0.57.0
       '@oxfmt/binding-win32-ia32-msvc': 0.57.0
       '@oxfmt/binding-win32-x64-msvc': 0.57.0
-      vite-plus: '@tiara-stack/vite-plus@0.2.3(@tiara-stack/vite-plus@0.2.3)(@types/node@24.13.2)(@voidzero-dev/vite-plus-core@0.2.2(@types/node@24.13.2)(typescript@6.0.3)(yaml@2.9.0))(typescript@6.0.3)(yaml@2.9.0)'
+      vite-plus: '@tiara-stack/vite-plus@0.2.4(@tiara-stack/vite-plus@0.2.4)(@types/node@24.13.2)(@voidzero-dev/vite-plus-core@0.2.2(@types/node@24.13.2)(typescript@6.0.3)(yaml@2.9.0))(typescript@6.0.3)(yaml@2.9.0)'
 
   oxlint-tsgolint@0.24.0:
     optionalDependencies:
@@ -1774,7 +1794,7 @@ snapshots:
       '@oxlint-tsgolint/win32-arm64': 0.24.0
       '@oxlint-tsgolint/win32-x64': 0.24.0
 
-  oxlint@1.72.0(@tiara-stack/vite-plus@0.2.3)(oxlint-tsgolint@0.24.0):
+  oxlint@1.72.0(@tiara-stack/vite-plus@0.2.4)(oxlint-tsgolint@0.24.0):
     optionalDependencies:
       '@oxlint/binding-android-arm-eabi': 1.72.0
       '@oxlint/binding-android-arm64': 1.72.0
@@ -1796,7 +1816,7 @@ snapshots:
       '@oxlint/binding-win32-ia32-msvc': 1.72.0
       '@oxlint/binding-win32-x64-msvc': 1.72.0
       oxlint-tsgolint: 0.24.0
-      vite-plus: '@tiara-stack/vite-plus@0.2.3(@tiara-stack/vite-plus@0.2.3)(@types/node@24.13.2)(@voidzero-dev/vite-plus-core@0.2.2(@types/node@24.13.2)(typescript@6.0.3)(yaml@2.9.0))(typescript@6.0.3)(yaml@2.9.0)'
+      vite-plus: '@tiara-stack/vite-plus@0.2.4(@tiara-stack/vite-plus@0.2.4)(@types/node@24.13.2)(@voidzero-dev/vite-plus-core@0.2.2(@types/node@24.13.2)(typescript@6.0.3)(yaml@2.9.0))(typescript@6.0.3)(yaml@2.9.0)'
 
   path-expression-matcher@1.6.1: {}
 
